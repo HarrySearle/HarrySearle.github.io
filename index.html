@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>All Brisbane Cleaning</title>
     <style>
         body {
@@ -17,7 +20,7 @@
             text-align: center;
             padding: 100px 20px;
             background: url('background.jpg') center/cover no-repeat;
-			height: 300px;
+            height: 500px;
             color: #fff;
             position: relative;
         }
@@ -29,13 +32,13 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
-            z-index: 0; /* Place the overlay behind the content */
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
         }
 
         h1, p.subtitle, h2, p, button {
             position: relative;
-            z-index: 1; /* Place the text in front of the overlay */
+            z-index: 1;
             color: white;
         }
 
@@ -48,13 +51,13 @@
             font-size: 1.2em;
             margin-top: 40px;
         }
-		
-		.title {
-            color: #ff80ab;
+
+        .title {
+            color: #ff3b76;
             font-size: 2em;
             margin-bottom: 10px;
-			margin-top: 50px;
-			text-align: center;
+            margin-top: 50px;
+            text-align: center;
         }
 
         section {
@@ -63,7 +66,7 @@
         }
 
         h2 {
-            color: #ff80ab;
+            color: #ff3b76;
             font-size: 2em;
             margin-bottom: 20px;
         }
@@ -74,17 +77,16 @@
             line-height: 1.6;
             color: #fff;
         }
-		
-		div p {
-			max-width: 800px;
+
+        div p {
+            max-width: 800px;
             margin: 0 auto 20px;
             line-height: 1.6;
             color: #555;
-		
-		}
+        }
 
         button {
-            background-color: #ff80ab;
+            background-color: #ff3b76;
             color: #fff;
             padding: 15px 30px;
             font-size: 1.2em;
@@ -98,7 +100,7 @@
         }
 
         footer {
-            background-color: #ff80ab;
+            background-color: #ff3b76;
             padding: 20px 0;
             text-align: center;
             width: 100%;
@@ -123,23 +125,50 @@
             padding-bottom: 40px;
             text-align: left;
             border-radius: 8px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            overflow: hidden;
+            transition: height 0.3s ease;
         }
-		
-		.service-item h3 {
+
+        .service-item:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item h3 {
             margin-left: 5%;
         }
-		
-		.service-item p {
+
+        .service-item p {
             margin-left: 5%;
         }
-		
-		
+
         .service-item img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin-bottom: 10px;
+        }
+
+        .expanded-section {
+            width: 100%;
+            background-color: #fff;
+            padding: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: left;
+            overflow: hidden;
+            max-height: 0;
+           
+            
+        }
+
+        .expanded-section h2 {
+            margin-left: 32%;
+        }
+
+        .expanded-section p {
+            margin-left: 5%;
         }
 
         /* Form Styles */
@@ -166,7 +195,7 @@
         }
 
         form button {
-            background-color: #ff80ab;
+            background-color: #ff3b76;
             color: #fff;
             padding: 10px 20px;
             font-size: 1.2em;
@@ -185,38 +214,60 @@
     <header>
         <h1>All Brisbane Cleaning</h1>
         <p class="subtitle">Your Trusted Partner for Professional Cleaning Services</p>
-		
         <p>We are your dedicated cleaning professionals in Brisbane. Our team provides top-notch cleaning services tailored to meet your specific needs.</p>
-        
-		<br><br>
-		<button>Contact Us</button>
+        <br><br>
+        <button>Contact Us</button>
     </header>
 
-    
-    <h2 class="title">Welcome to a Clean and Fresh Home!</h2>
-    
+    <h2 class="title">"Don't stress, we'll clean your mess!"</h2>
 
     <section class="services">
-        <div class="service-item">
+        <div class="service-item" onclick="toggleSection('service1-section')">
             <img src="placeholder_image1.jpg" alt="Service 1">
-            <h3>Residential Cleaning</h3>
+            <h3>General Clean</h3>
             <p>Keep your home spotless with our thorough residential cleaning services.</p>
         </div>
-        <div class="service-item">
+        <div class="service-item" onclick="toggleSection('service2-section')">
             <img src="placeholder_image2.jpg" alt="Service 2">
-            <h3>Commercial Cleaning</h3>
+            <h3>Deep Clean</h3>
             <p>We ensure a clean and inviting workspace for your employees and clients.</p>
         </div>
-        <div class="service-item">
+        <div class="service-item" onclick="toggleSection('service3-section')">
             <img src="placeholder_image3.jpg" alt="Service 3">
-            <h3>Carpet Cleaning</h3>
+            <h3>Additional Services</h3>
             <p>Revitalize your carpets and rugs with our professional cleaning techniques.</p>
         </div>
     </section>
-    
+
+    <div id="service1-section" class="expanded-section">
+        <h2>General Cleaning Details</h2>
+        <br>
+        <center><img src="GeneralClean.png" alt="General Clean"></center>
+    </div>
+    <div id="service2-section" class="expanded-section">
+        <h2>Deep Cleaning Details</h2>
+        <br>
+        <center><img src="DeepClean.png" alt="Deep Clean"></center>
+    </div>
+    <div id="service3-section" class="expanded-section">
+        <h2>Additional Services Details</h2>
+        <br>
+        <center><img src="AdditionalServices.png" alt="Additional Services"></center>
+    </div>
+
+
+    <section>
+        <div style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width:100%;">
+            <br>
+            <center><img src="PriceList.png" alt="Price List"></center>
+            <br>
+        </div>
+        
+    </section>
+
     <!-- Enquiries Form -->
     <section>
-        <h2>Contact Us</h2>
+        <h2>Enquire Now</h2>
         <form>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -230,9 +281,40 @@
             <button type="submit">Submit</button>
         </form>
     </section>
+    
+    
+
+    <section>
+        <h2>Contact Us</h2>
+        <p style="color:black">Email: allbrisbanecleaning@outlook.com</p>
+        <p style="color:black">Phone: 0466 435 232</p>
+    </section>
 
     <footer>
         <p>&copy; 2023 All Brisbane Cleaning. All rights reserved.</p>
     </footer>
+
+    <script>
+        var isFirstClick = true;
+
+        function toggleSection(sectionId) {  
+
+            var section = document.getElementById(sectionId);
+            var otherSections = document.querySelectorAll('.expanded-section:not(#' + sectionId + ')');
+
+            // Close other sections
+            otherSections.forEach(function (otherSection) {
+                otherSection.style.maxHeight = 0;
+            });
+
+            isFirstClick = false;
+    
+            // Toggle the visibility of the selected section
+            section.style.maxHeight = section.style.maxHeight === '0px' ? section.scrollHeight + 'px' : '0px';
+        }
+    </script>
+    
+    
+
 </body>
 </html>
