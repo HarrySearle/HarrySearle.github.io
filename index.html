@@ -101,13 +101,15 @@
 
         footer {
             background-color: #ff3b76;
-            padding: 20px 0;
+            padding: 0px;
+            margin-bottom: -20px;
             text-align: center;
             width: 100%;
         }
 
         footer p {
             color: #fff;
+            padding: 20px 0;
         }
 
         .services {
@@ -151,15 +153,15 @@
         }
 
         .expanded-section {
-            width: 100%;
+            width: 98%;
             background-color: #fff;
-            padding: 0px;
+            margin-left: 20px;
+            margin-right: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: left;
             overflow: hidden;
-            max-height: 0;
-           
+            max-height: 0; 
             
         }
 
@@ -297,20 +299,37 @@
     <script>
         var isFirstClick = true;
 
-        function toggleSection(sectionId) {  
+        function toggleSection(sectionId) {
 
             var section = document.getElementById(sectionId);
             var otherSections = document.querySelectorAll('.expanded-section:not(#' + sectionId + ')');
-
             // Close other sections
             otherSections.forEach(function (otherSection) {
                 otherSection.style.maxHeight = 0;
+                otherSection.style.transition = '';
             });
 
-            isFirstClick = false;
-    
-            // Toggle the visibility of the selected section
-            section.style.maxHeight = section.style.maxHeight === '0px' ? section.scrollHeight + 'px' : '0px';
+            section.style.maxHeight = section.style.maxHeight === '0px' ||  section.style.maxHeight === '' ? section.scrollHeight + 'px' : '0px';
+
+            if(isFirstClick){
+                // Toggle the visibility of the selected section
+                section.style.transition = 'max-height 0.3s ease';   
+                isFirstClick = false;
+            }
+            else{
+                section.style.transition = 'none';
+            }
+
+            var counter = 0;
+            otherSections.forEach(function (otherSection) {
+                if(otherSection.style.maxHeight === '0px'){
+                    counter += 1;
+                }
+                if(section.style.maxHeight === '0px' && counter === 2){
+                    section.style.transition = 'max-height 0.3s ease';
+                    isFirstClick = true;
+                }
+            });
         }
     </script>
     
