@@ -121,7 +121,7 @@
         }
 
         .service-item {
-            flex: 1;
+            flex: 1 1 45%; /* Adjust this value for responsiveness */
             max-width: 450px;
             border: 1px solid #ddd;
             padding-bottom: 40px;
@@ -131,6 +131,7 @@
             cursor: pointer;
             overflow: hidden;
             transition: height 0.3s ease;
+            margin-bottom: 20px;
         }
 
         .service-item:hover {
@@ -155,18 +156,17 @@
         .expanded-section {
             width: 98%;
             background-color: #fff;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin-left: 2%;
+            margin-right: 2%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: left;
             overflow: hidden;
             max-height: 0; 
-            
         }
 
         .expanded-section h2 {
-            margin-left: 32%;
+            margin-left: 5%;
         }
 
         .expanded-section p {
@@ -218,53 +218,59 @@
         <p class="subtitle">Your Trusted Partner for Professional Cleaning Services</p>
         <p>We are your dedicated cleaning professionals in Brisbane. Our team provides top-notch cleaning services tailored to meet your specific needs.</p>
         <br><br>
-        <button>Contact Us</button>
+        <button onclick="scrollDown()">Contact Us</button>
     </header>
 
     <h2 class="title">"Don't stress, we'll clean your mess!"</h2>
 
-    <section class="services">
-        <div class="service-item" onclick="toggleSection('service1-section')">
-            <img src="placeholder_image1.jpg" alt="Service 1">
-            <h3>General Clean</h3>
-            <p>Keep your home spotless with our thorough residential cleaning services.</p>
+    <section class="container" style="padding-left: 3%; width: 85%">
+        <div class="col-md-4 col-sm-6">
+            <div class="service-item" onclick="toggleSection('service1-section')">
+                <img src="placeholder_image1.jpg" alt="Service 1" class="img-responsive">
+                <h3>General Clean</h3>
+                <p>Keep your home spotless with our thorough residential cleaning services.</p>
+            </div>
         </div>
-        <div class="service-item" onclick="toggleSection('service2-section')">
-            <img src="placeholder_image2.jpg" alt="Service 2">
-            <h3>Deep Clean</h3>
-            <p>We ensure a clean and inviting workspace for your employees and clients.</p>
+        <div class="col-md-4 col-sm-6">
+            <div class="service-item" onclick="toggleSection('service2-section')">
+                <img src="placeholder_image2.jpg" alt="Service 2" class="img-responsive">
+                <h3>Deep Clean</h3>
+                <p>We ensure a clean and inviting workspace for your employees and clients.</p>
+            </div>
         </div>
-        <div class="service-item" onclick="toggleSection('service3-section')">
-            <img src="placeholder_image3.jpg" alt="Service 3">
-            <h3>Additional Services</h3>
-            <p>Revitalize your carpets and rugs with our professional cleaning techniques.</p>
+        <div class="col-md-4 col-sm-6">
+            <div class="service-item" onclick="toggleSection('service3-section')">
+                <img src="placeholder_image3.jpg" alt="Service 3" class="img-responsive">
+                <h3>Additional Services</h3>
+                <p>Revitalize your carpets and rugs with our professional cleaning techniques.</p>
+            </div>
         </div>
     </section>
 
     <div id="service1-section" class="expanded-section">
         <h2>General Cleaning Details</h2>
         <br>
-        <center><img src="GeneralClean.png" alt="General Clean"></center>
+        <center><img src="GeneralClean.png" alt="General Clean" class="img-responsive"></center>
     </div>
     <div id="service2-section" class="expanded-section">
         <h2>Deep Cleaning Details</h2>
         <br>
-        <center><img src="DeepClean.png" alt="Deep Clean"></center>
+        <center><img src="DeepClean.png" alt="Deep Clean" class="img-responsive"></center>
     </div>
     <div id="service3-section" class="expanded-section">
         <h2>Additional Services Details</h2>
         <br>
-        <center><img src="AdditionalServices.png" alt="Additional Services"></center>
+        <center><img src="AdditionalServices.png" alt="Additional Services" class="img-responsive"></center>
     </div>
 
-
-    <section>
-        <div style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width:100%;">
-            <br>
-            <center><img src="PriceList.png" alt="Price List"></center>
-            <br>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br>
+                <center><img src="PriceList.png" alt="Price List" class="img-responsive"></center>
+                <br>
+            </div>
         </div>
-        
     </section>
 
     <!-- Enquiries Form -->
@@ -283,8 +289,6 @@
             <button type="submit">Submit</button>
         </form>
     </section>
-    
-    
 
     <section>
         <h2>Contact Us</h2>
@@ -331,9 +335,14 @@
                 }
             });
         }
+
+        function scrollDown() {
+            // Scroll down to the bottom of the page
+            $('html, body').animate({
+                scrollTop: $(document).height()
+            }, 1500);
+        }
     </script>
     
-    
-
 </body>
 </html>
