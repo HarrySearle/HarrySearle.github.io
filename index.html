@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>All Brisbane Cleaning</title>
+    <link rel="icon" type="image/x-icon" href="background.jpg">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -166,7 +167,7 @@
         }
 
         .expanded-section h2 {
-            margin-left: 5%;
+            margin-left: 31%;
         }
 
         .expanded-section p {
@@ -235,14 +236,14 @@
             <div class="service-item" onclick="toggleSection('service2-section')">
                 <img src="placeholder_image2.jpg" alt="Service 2" class="img-responsive">
                 <h3>Deep Clean</h3>
-                <p>We ensure a clean and inviting workspace for your employees and clients.</p>
+                <p>Immerse yourself in cleanliness with our Deep Clean service, providing a refreshing and inviting atmosphere.</p>
             </div>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="service-item" onclick="toggleSection('service3-section')">
                 <img src="placeholder_image3.jpg" alt="Service 3" class="img-responsive">
                 <h3>Additional Services</h3>
-                <p>Revitalize your carpets and rugs with our professional cleaning techniques.</p>
+                <p>Explore our Additional Services, dedicated to enhancing the overall cleanliness and charm of your living spaces.</p>
             </div>
         </div>
     </section>
@@ -334,6 +335,11 @@
                     isFirstClick = true;
                 }
             });
+
+            // Scroll down to the bottom of the page
+            $('html, body').animate({
+                scrollTop: "500px"
+            }, 300);
         }
 
         function scrollDown() {
